@@ -1,0 +1,82 @@
+
+-------------------------------------------------
+
+        Welcome to the GULLY CRICKET GAME.
+
+-------------------------------------------------
+
+
+Press Enter to display players in Team:
+Displaying players...
+-------------------------------------------------
+*****************Team A:*********************
+1.M.S.Dhoni
+2.Virat kohli
+3.Yuvi Chahal
+
+*******************Team B:*******************
+1.Hardik Pandya
+2.Jasprit Bumrah
+3.Rohit Sharma
+-------------------------------------------------
+        ------Team A : Batting------
+M.S.Dhoni batting from Team A
+
+        ------Team B : Bowling------
+Hardik Pandya bowling from Team B
+
+
+Press Enter....
+Runs : 1
+
+Press Enter....
+Runs : 1
+
+Press Enter....
+Runs : 5
+
+Press Enter....
+Runs : 3
+
+Press Enter....
+Runs : 6
+
+Press Enter....
+Runs : 3
+
+Press Enter to get final score....
+Final run scored by the team:19
+
+Press Enter to start second inning
+        ....Second Inning started....
+        ------Team B : Batting------
+Jasprit Bumrah batting from Team B
+
+        ------Team A : Bowling------
+Virat Kohli bowling from Team A
+
+
+Press Enter....
+Runs : 5
+
+Press Enter....
+Runs : 6
+
+Press Enter....
+Runs : 2
+
+Press Enter....
+Runs : 3
+
+Press Enter....
+Runs : 5
+
+Press Enter....
+Runs : 6
+
+Press Enter to get final score....
+Final run scored by the team:27
+                 !!Team B Won!!
+
+Process returned 0 (0x0)   execution time : 10.677 s
+Press any key to continue.
