@@ -1,0 +1,52 @@
+import pandas as pd
+import numpy as np
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
+import seaborn as sns
+from IPython import display
+from pprint import pprint
+import praw
+import matplotlib.pyplot as plt
+
+
+nltk.download('vader_lexicon')
+nltk.download('stopwords')
+
+sns.set(style = 'darkgrid', context= 'talk', palette= 'Dark2')
+
+reddit = praw.Reddit(client_id='Sxgyh81OV-Wq-g',
+                      client_secret='bLTnhZvZSrIVSbDpaAzLogY7RXXL0Q',
+                      user_agent='Reddit_User790', check_for_async=False)
+
+headlines=set()
+for sub in reddit.subreddit('Israel').new(limit=None):
+	headlines.add(sub.title)
+print(len(headlines))
+
+sia= SIA()
+results = []
+for line in headlines:
+      scores=sia.polarity_scores(line)
+      scores['headline']=line
+      results.append(scores)
+df=pd.DataFrame.from_records(results)
+df.head(5)
+
+df['label']=0
+df.loc[df['compound']>0.1,'label']=1
+df.loc[df['compound']<-0.1,'label']=-1
+df.head()
+
+print("positive headlines:\n")
+pprint(list(df[df['label']==1].headline)[:5],width=100)
+print("negative headlines:\n")
+pprint(list(df[df['label']==-1].headline)[:5],width=100)
+
+
+fig, ax=plt.subplots(figsize = (8,8))
+counts = df.label.value_counts(normalize=True)*100
+sns.barplot(x=counts.index, y=counts, ax=ax)
+ax.set_xticklabels(['negative','neutral','positive'])
+ax.set_ylabel("percentage")
+plt.show()
+
